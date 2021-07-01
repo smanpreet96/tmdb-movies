@@ -1,0 +1,23 @@
+<div class="carousel-container" *ngIf="itemsData.length>0">
+    <div class="section-heading" >
+        <h3>{{ carouselHeading }}</h3>
+    </div>
+    <div class="web-carousel">
+        <ngb-carousel #carousel [interval]="0">
+            <ng-template ngbSlide *ngFor="let data of itemsData">
+                <div class="slides-container">
+                    <div class="inner-slides-container">
+                        <app-carousel-item *ngFor="let d of data" [imgsrc]="d.imagesrc" [category]="d.category" [id]="d.id" [caption]="d.caption"></app-carousel-item>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+    <div class="mobile-carousel">
+        <ngb-carousel #mobilecarousel [showNavigationIndicators]="navigationIndicators" [interval]="0">
+            <ng-template ngbSlide *ngFor="let d of itemsDataMobile">
+                <app-carousel-item [imgsrc]="d.imagesrc" [category]="d.category" [id]="d.id" [caption]="d.caption"></app-carousel-item>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>

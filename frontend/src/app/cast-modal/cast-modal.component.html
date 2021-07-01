@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ name }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Close clicked')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="details-container" #detcont>
+        <div class="img-container">
+            <img class="cast-img" #castimg [src]="imgsrc" alt="Cast Image">
+        </div>
+        <div class="text-container" #textcont>
+            <p *ngIf="dob">Birth: {{ dob }}</p>
+            <p *ngIf="pob">Birth Place: {{ pob }}</p>
+            <p *ngIf="gender">Gender: {{ gender }}</p>
+            <p *ngIf="website">Website: <span><a [href]="website" target="_blank">{{ website }}</a></span></p>
+            <p *ngIf="knownfor">Known for: {{ knownfor }}</p>
+            <p *ngIf="knownas">Also Known as: {{ knownas }}</p>
+            <div class="buttons-container">
+                <a *ngIf="imdburl" class="imdb-button" [href]="imdburl" target="_blank" ngbTooltip="Visit IMDb" tooltipClass="tooltip-class"><i class="fab fa-imdb fa-lg"></i></a>
+                <a *ngIf="instaurl" class="insta-button" [href]="instaurl" target="_blank" ngbTooltip="Visit Instagram" tooltipClass="tooltip-class"><i class="fab fa-instagram fa-lg"></i></a>
+                <a *ngIf="fburl" class="fb-button" [href]="fburl" target="_blank" ngbTooltip="Visit Facebook" tooltipClass="tooltip-class"><i class="fab fa-facebook-square fa-lg"></i></a>
+                <a *ngIf="twitterurl" class="twitter-button" [href]="twitterurl" target="_blank" ngbTooltip="Visit Twitter" tooltipClass="tooltip-class"><i class="fab fa-twitter fa-lg"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="bio-container" *ngIf="bio">
+        <h4>Biography</h4>
+        <p>{{ bio }}</p>
+    </div>
+</div>

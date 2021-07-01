@@ -1,0 +1,64 @@
+<div class="flex-container">
+    <div class="inner-flex-container col-sm-2 col-lg-10">
+        <div class="details-container" #detailscont>
+            <div class="video-container">
+                <youtube-player [height]="playerHeight" [width]="playerWidth" [videoId]="youtubekey"></youtube-player>
+            </div>
+            <div class="right-container" #rightcont>
+                <div class="mobile-title-container">
+                    <h1>{{ title }}</h1>
+                </div>
+                <p style="font-style: italic;">{{ tagline }}</p>
+                <div class="ratings-container">
+                    <p>{{ releasedate }} &nbsp;|&nbsp;&nbsp;<i class="fas fa-star"></i>&nbsp;{{ voteavg }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ runtimestring }}</p>
+                </div>
+                <div class="genres-container" *ngIf="genrestring != ''">
+                    <p style="margin-bottom: 0px;"><span style="font-weight: bold;">Genres:</span>&nbsp;&nbsp;{{ genrestring }}</p>
+                </div>
+                <div class="langs-container" *ngIf="langstring != ''">
+                    <p><span style="font-weight: bold;">Spoken Languages:</span>&nbsp;&nbsp;{{ langstring }}</p>
+                </div>
+                <div class="button-container">
+                    <button type="button" id="Watchlistbutton" class="btn btn-primary" *ngIf="!inWatchlist" (click)="addToWatchlist()">Add to Watchlist</button>
+                    <button type="button" id="Watchlistbutton" class="btn btn-primary" *ngIf="inWatchlist" (click)="removeFromWatchlist()">Remove from Watchlist</button>
+                    <ngb-alert #addedMessage *ngIf="added" type="success" (closed)="added = false;">Added to watchlist.</ngb-alert>
+                    <ngb-alert #removedMessage *ngIf="removed" type="danger" (closed)="removed = false;">Removed from watchlist.</ngb-alert>
+                </div>
+            </div>
+        </div>
+        <div class="description-container">
+            <h4>Description</h4>
+            <p>{{ overview }}</p>
+        </div>
+        <div class="share-container">
+            <h4>Share</h4>
+            <div style="margin-right: 10px;">
+                <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ title }}&url=https://www.youtube.com/watch?v={{ youtubekey }}&hashtags=USC,CSCI571,FightOn" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                <a class="fb-share-button" href="https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/watch?v={{ youtubekey }}&amp;src=sdkpreparse" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
+            </div>
+        </div>
+        <div class="cast-container" *ngIf="castmembers.length>1">
+            <h2>Full Cast and Crew</h2>
+            <div class="cast">
+                <app-cast-card *ngFor="let c of castmembers" [name]="c.name" [character]="c.character" [imgsrc]="c.profile_path" [id]="c.id"></app-cast-card>
+            </div>
+        </div>
+        <div class="reviews-container" *ngIf="reviews.length>1">
+            <h2>Reviews&nbsp;&nbsp;<span style="opacity: 55%;">{{ reviews.length }}</span></h2>
+            <app-review-card *ngFor="let r of reviews"
+                    [imgsrc]="r.avatar_path"
+                    [author]="r.author"
+                    [url]="r.url"
+                    [reviewcontent]="r.content"
+                    [voteavg]="r.rating"
+                    [datentime]="r.created_at">
+            </app-review-card>
+        </div>
+        <div class="recommended">
+            <app-carousel-section [carouselHeading]="carouselHeadings[0]" [category]="category" [type]="recommended" [id]="id"></app-carousel-section>
+        </div>
+        <div class="similar">
+            <app-carousel-section [carouselHeading]="carouselHeadings[1]" [category]="category" [type]="similar" [id]="id"></app-carousel-section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" routerLink="/">USC Films</a>
+    <button class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navcontent"
+        aria-controls="navcontent"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navcontent">
+        <ul *ngIf="!mobileview" class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" [routerLink]="['/']">Home</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" [routerLink]="['/mylist']">My List</a>
+            </li>
+        </ul>
+        <!-- list items for mobile -->
+        <ul *ngIf="mobileview" class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+                data-toggle="collapse"
+                data-target="#navcontent"
+                aria-controls="navcontent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <a class="nav-link" [routerLink]="['/']">Home</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"
+                data-toggle="collapse"
+                data-target="#navcontent"
+                aria-controls="navcontent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <a class="nav-link" [routerLink]="['/mylist']">My List</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" #searchform="ngForm">
+            <input #searchInput class="form-control mr-sm-2"
+                id="search-bar"
+                type="text"
+                placeholder="Search"
+                [(ngModel)]="searchModel"
+                [ngbTypeahead]="search"
+                [ngModelOptions]="{ standalone: true }"
+                [resultTemplate]="resultTemp"
+                (selectItem)="onItemSelect($event, searchInput)">
+        </form>
+    </div>
+</nav>
+<div style="margin-top: 50px;">
+    <router-outlet></router-outlet>
+</div>
+<footer class="footer mt-auto">
+    Powered by TMDB, Developed by Manpreet Singh.
+</footer>
+<ng-template #resultTemp let-r="result" let-t="term">
+    <img [src]="r.backdrop_path" class="mr-1" style="width: 50px">
+    <ngb-highlight [result]="r.name" [term]="t" [highlightClass]="'results-hightlight'" placement="bottom-left"></ngb-highlight>
+</ng-template>

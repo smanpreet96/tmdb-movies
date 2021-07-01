@@ -1,0 +1,52 @@
+.carousel-container
+{
+    margin-top: 20px;
+}
+
+.section-heading
+{
+    color: white;
+}
+
+.slides-container
+{
+    display: flex;
+    padding-top: 2%;
+    padding-bottom: 60px;
+    justify-content: flex-start;
+    margin-left: 7vw;
+}
+
+.carousel-control-next, .carousel-control-prev
+{
+    width: 5%;
+}
+
+.inner-slides-container
+{
+    display: flex;
+    justify-content: flex-start;
+}
+
+app-carousel-item
+{
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+}
+
+.web-carousel
+{
+    display: block;
+}
+
+.mobile-carousel
+{
+    display: none;
+}
+
+@media screen and (max-width: 500px)
+{
+    .web-carousel { display: none; }
+    .mobile-carousel { display: block; }
+    app-carousel-item { margin-left: 1vw; margin-right: 1vw; }
+}

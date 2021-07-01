@@ -1,0 +1,16 @@
+<div class="review-card" #revcard>
+    <div class="review-img" #revimg>
+        <img class="rounded-circle" id="avatar" [src]="imgsrc" alt="Avatar">
+    </div>
+    <div class="review-details">
+        <div class="review-header" #revheader>
+            <h5>A review created by {{ author }}&nbsp;&nbsp;</h5>
+            <h5> <span *ngIf="voteavg"><i class="fas fa-star"></i>&nbsp;{{ voteavg }}</span> </h5>
+        </div>
+        <div class="review-body">
+            <p>Written by {{ author }} on {{ datentime | date: 'longDate' }},&nbsp;{{ datentime | date: 'mediumTime' }}</p>
+            <p id="reviewcontent">{{ reviewcontent }}</p>
+            <a [href]="url" target="_blank">Read the rest</a>
+        </div>
+    </div>
+</div>

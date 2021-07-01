@@ -1,0 +1,63 @@
+.carousel-img-wrapper
+{
+    height: 450px;
+    overflow: hidden;
+}
+
+.carousel-caption
+{
+    display: none;
+    right: auto;
+}
+
+.overlay
+{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background-image: linear-gradient(to top, black 20%, rgba(255, 0, 0, 0));
+    z-index: 5;
+}
+
+#carousel-link:hover .overlay
+{
+    display: block;
+}
+
+#carousel-link:hover .carousel-caption
+{
+    display: block;
+}
+
+#backdropimg
+{
+    transition: transform 0.2s;
+    width: 85vw;
+}
+
+#carousel-link:hover #backdropimg
+{
+    transform: scale(1.5);
+}
+
+@media screen and (max-width: 500px) {
+    .overlay, .carousel-caption
+    {
+        display: block;
+    }
+
+    .carousel-img-wrapper
+    {
+        height: 225px;
+    }
+
+    #backdropimg
+    {
+        width: 420px;
+    }
+}

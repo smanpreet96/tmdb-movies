@@ -1,0 +1,39 @@
+.watchlist-container
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.inner-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.watchlist-items-container
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+h2
+{
+    color: white;
+    margin-top: 20px;
+}
+
+app-carousel-item
+{
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 2800px)
+{
+    app-carousel-item { margin-right: 1vw; margin-left: 1vw; }
+}

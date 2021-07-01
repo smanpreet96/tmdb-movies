@@ -1,0 +1,9 @@
+<div class="img-wrapper">
+    <a routerLink="/watch/{{ category }}/{{ id }}" (click)="addToContWatching()" id="itemlink" #itemlink>
+        <div #carcap class="carousel-caption">
+            <h5>{{ caption }}</h5>
+        </div>
+        <div #overlay class="overlay"></div>
+        <img #carimg class="carousel-item-img" [src]="item.imagesrc" alt="Movie Poster">
+    </a>
+</div>

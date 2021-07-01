@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/1c2dbe3b-3e6e-45bf-9a32-0419a11d83dd/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/uscfilms-mobile-backend",
+    "appService.deploySubpath": "."
+}

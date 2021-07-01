@@ -1,0 +1,11 @@
+<div class="watchlist-container" *ngIf="objects.length>0; else emptyListMessage">
+    <div class="inner-container col-sm-6 col-lg-9">
+        <h2>My Watchlist</h2>
+        <div class="watchlist-items-container">
+            <app-carousel-item *ngFor="let o of objects" [category]="o.category" [caption]="o.caption" [id]="o.id" [imgsrc]="o.imagesrc?o.imagesrc : '' "></app-carousel-item>
+        </div>
+    </div>
+</div>
+<ng-template #emptyListMessage>
+    <h2 style="text-align: center;">No items found in Watchlist.</h2>
+</ng-template>

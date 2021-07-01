@@ -1,0 +1,19 @@
+.flex-container
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-self: center;
+}
+
+.inner-flex-container
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.home-carousel-container, .content-container
+{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}

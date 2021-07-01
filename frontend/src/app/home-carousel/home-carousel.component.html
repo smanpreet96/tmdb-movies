@@ -1,0 +1,16 @@
+<ngb-carousel #carousel
+    [interval]="2500"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus">
+    <ng-template ngbSlide *ngFor="let d of responsedata">
+        <a routerLink="/watch/movie/{{ d.id }}" (click)="gotodetailspage(d)" id="carousel-link">
+            <div class="carousel-caption">
+                <h3>{{ d.title }}</h3>
+            </div>
+            <div class="overlay"></div>
+            <div class="carousel-img-wrapper">
+                <img [src]="d.backdrop_path" id="backdropimg" alt="backdrop-image">
+            </div>
+        </a>
+    </ng-template>
+</ngb-carousel>
